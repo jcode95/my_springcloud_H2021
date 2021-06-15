@@ -3,13 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>my_springcloud_H2021</groupId>
+    <groupId>org.zj.cloud</groupId>
     <artifactId>myspringcloudh2021</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>cloud-provider-payment8001</module>
+        <module>cloud-consumer-order80</module>
+    </modules>
     <!-- 这里添加，注意不是jar或war -->
     <packaging>pom</packaging>
-
     <!-- 统一管理jar包版本 -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,8 +25,15 @@
         <mybatis.spring.boot.version>1.3.0</mybatis.spring.boot.version>
     </properties>
 
-    <!-- 子模块继承之后，提供作用：
-		锁定版本+子modlue不用写groupId和version -->
+    <!-- Maven使用dependencyManagement元素来提供了一种管理依赖版本号的方式。
+    通常会在一个组织或者项目的最顶层的父POM中看到dependencyManagement元素。
+    使用pom.xml中的dependencyManagement元素能让所有在子项目中引用个依赖而不用显式的列出版本量。
+    Maven会沿着父子层次向上走，直到找到一个拥有dependencyManagement元素的项目，然后它就会使用这个
+    dependencyManagement元素中指定的版本号。
+    ————————————————
+    版权声明：本文为CSDN博主「巨輪」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+    原文链接：https://blog.csdn.net/u011863024/article/details/114298270
+-->
     <dependencyManagement>
         <dependencies>
             <!--spring boot 2.2.2-->
@@ -97,4 +106,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
