@@ -5,8 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class CommonResult<T> {
     private Integer code;
     private String message;
@@ -14,5 +14,11 @@ public class CommonResult<T> {
 
     public CommonResult(Integer code, String message) {
         this(code, message, null);
+    }
+
+    public CommonResult(Integer code, String message, T data) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
     }
 }
