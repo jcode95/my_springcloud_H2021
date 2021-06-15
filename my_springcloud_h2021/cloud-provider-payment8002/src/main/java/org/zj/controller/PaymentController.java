@@ -2,15 +2,12 @@ package org.zj.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 import org.zj.comment.CommonResult;
 import org.zj.entity.Payment;
 import org.zj.service.PaymentService;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  */
@@ -21,23 +18,6 @@ public class PaymentController {
     String serverPort;
     @Resource
     private PaymentService paymentService;
-
-    @Resource
-    private DiscoveryClient discoveryClient;
-
-
-    @GetMapping("/payment/discovery")
-    public Object discovery() {
-        List<String> services = discoveryClient.getServices();
-        for (String element : services) {
-            System.out.println("element = " + element);
-        }
-        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
-        for (ServiceInstance instance : instances) {
-            System.out.println(instance.getServiceId() + "\t" + instance.getHost() + "\t" + instance.getPort() + "\t" + instance.getUri());
-        }
-        return this.discoveryClient;
-    }
 
     @PostMapping(value = "/payment/create")
     public CommonResult create(@RequestBody Payment payment) {

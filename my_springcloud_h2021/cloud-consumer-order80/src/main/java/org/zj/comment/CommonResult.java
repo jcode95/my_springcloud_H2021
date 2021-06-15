@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 
 //@Data 生成getter,setter ,toString等函数
-//@NoArgsConstructor 生成无参构造函数
-//@AllArgsConstructor //生成全参数构造函数
+@NoArgsConstructor //生成无参构造函数
+@AllArgsConstructor //生成全参数构造函数
 public class CommonResult<T> {
     private Integer code;
     private String message;
@@ -18,9 +18,4 @@ public class CommonResult<T> {
         this(code, message, null);
     }
 
-    public CommonResult(Integer code, String message, T data) {
-        this.code = code;
-        this.message = message;
-        this.data = data;
-    }
 }

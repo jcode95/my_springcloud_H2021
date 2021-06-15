@@ -8,9 +8,11 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>cloud-provider-payment8001</module>
+        <module>cloud-provider-payment8002</module>
         <module>cloud-consumer-order80</module>
         <module>cloud-api-commons</module>
         <module>cloud-eureka-server7001</module>
+        <module>cloud-eureka-server7002</module>
     </modules>
     <!-- 这里添加，注意不是jar或war -->
     <packaging>pom</packaging>

@@ -1,5 +1,5 @@
 server:
-  port: 8001
+  port: 8002
 
 spring:
   application:
@@ -18,7 +18,7 @@ mybatis:
 
 eureka:
   instance:
-    instance-id: payment8001
+    instance-id: payment8002
     prefer-ip-address: true #添加此处  显示ip
   client:
     #表示是否将自己注册进Eurekaserver默认为true。
