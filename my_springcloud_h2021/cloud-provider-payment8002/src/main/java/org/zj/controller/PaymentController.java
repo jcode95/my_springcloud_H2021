@@ -19,6 +19,13 @@ public class PaymentController {
     @Resource
     private PaymentService paymentService;
 
+
+
+    @GetMapping("/payment/lb")
+    public String getPaymentLB() {
+        return serverPort;//返回服务接口
+    }
+
     @PostMapping(value = "/payment/create")
     public CommonResult create(@RequestBody Payment payment) {
         int result = paymentService.create(payment);

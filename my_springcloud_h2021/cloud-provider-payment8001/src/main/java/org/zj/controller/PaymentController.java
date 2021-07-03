@@ -26,6 +26,11 @@ public class PaymentController {
     private DiscoveryClient discoveryClient;
 
 
+    @GetMapping("/payment/lb")
+    public String getPaymentLB() {
+        return serverPort;//返回服务接口
+    }
+
     @GetMapping("/payment/discovery")
     public Object discovery() {
         List<String> services = discoveryClient.getServices();
