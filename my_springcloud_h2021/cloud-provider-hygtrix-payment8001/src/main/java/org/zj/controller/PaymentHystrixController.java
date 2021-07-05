@@ -27,6 +27,8 @@ public class PaymentHystrixController {
 
     @Value("${server.port}")
     private String serverPort;
+
+
     @GetMapping("/payment/hystrix/ok/{id}")
     public String paymentThread_200_Ok(@PathVariable("id") int id){
         String s = paymentService.paymentThread_200_Ok(id);
