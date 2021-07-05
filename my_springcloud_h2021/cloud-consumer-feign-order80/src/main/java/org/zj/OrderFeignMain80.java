@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @author jiezhou
  * @CalssName: OrderFeignMain80
  * @Package org.zj
- * @Description: feign 来做负载均衡
+ * @Description: feign 来做负载均衡    OpenFeign服务调用
  * @date 2021/7/3/20:33
  */
 @EnableFeignClients//开启feign功能

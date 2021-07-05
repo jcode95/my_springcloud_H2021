@@ -1,6 +1,7 @@
 package org.zj.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.aspectj.apache.bcel.generic.RET;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +30,14 @@ public class OrderFeignController {
     @GetMapping(value = "/consumer/payment/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id){
        return paymentFeignService.getPaymentById(id);
+    }
+
+    /**
+     * 超时测试
+     */
+    @GetMapping(value = "/consumer/payment/feign/timeout")
+    public String paymentFeignTimeout(){
+        return paymentFeignService.paymentFeignTimeout();
     }
 
 }

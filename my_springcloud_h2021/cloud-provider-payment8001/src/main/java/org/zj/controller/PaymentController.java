@@ -11,6 +11,7 @@ import org.zj.service.PaymentService;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  */
@@ -66,5 +67,20 @@ public class PaymentController {
         } else {
             return new CommonResult(444, "没有对应记录,查询ID: " + id, null);
         }
+    }
+
+    /**
+     * 超时测试
+     */
+    @GetMapping(value = "/payment/feign/timeout")
+    public String paymentFeignTimeout()
+    {
+        // 业务逻辑处理正确，但是需要耗费5秒钟
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return serverPort;
     }
 }
