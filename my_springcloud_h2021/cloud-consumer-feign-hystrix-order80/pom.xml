@@ -28,7 +28,7 @@
         </dependency>
         <!-- 引入自己定义的api通用包，可以使用Payment支付Entity -->
         <dependency>
-            <groupId>com.lun.springcloud</groupId>
+            <groupId>org.zj.cloud</groupId>
             <artifactId>cloud-api-commons</artifactId>
             <version>${project.version}</version>
         </dependency>
