@@ -1,0 +1,55 @@
+GateWay常用的Predicate
+    Spring Cloud Gateway将路由匹配作为Spring WebFlux HandlerMapping基础架构的一部分。
+
+    Spring Cloud Gateway包括许多内置的Route Predicate工厂。所有这些Predicate都与HTTP请求的不同属性匹配。多个RoutePredicate工厂可以进行组合。
+
+    Spring Cloud Gateway创建Route 对象时，使用RoutePredicateFactory 创建 Predicate对象，Predicate 对象可以赋值给Route。Spring Cloud Gateway包含许多内置的Route Predicate Factories。
+
+
+    1、The After Route Predicate Factory
+        spring:
+          cloud:
+            gateway:
+              routes:
+              - id: after_route
+                uri: https://example.org
+                predicates:
+                # 这个时间后才能起效
+                - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+
+
+        可以通过下述方法获得上述格式的时间戳字符串
+            import java.time.ZonedDateTime;
+            public class T2
+            {
+                public static void main(String[] args)
+                {
+                    ZonedDateTime zbj = ZonedDateTime.now(); // 默认时区
+                    System.out.println(zbj);
+
+                   //2021-02-22T15:51:37.485+08:00[Asia/Shanghai]
+                }
+            }
+
+    2、The Between Route Predicate Factory
+        spring:
+          cloud:
+            gateway:
+              routes:
+              - id: between_route
+                uri: https://example.org
+                # 两个时间点之间
+                predicates:
+                - Between=2017-01-20T17:42:47.789-07:00[America/Denver], 2017-01-21T17:42:47.789-07:00[America/Denver]
+
+    3、The Cookie Route Predicate Factory
+        spring:
+          cloud:
+            gateway:
+              routes:
+              - id: cookie_route
+                uri: https://example.org
+                predicates:
+                - Cookie=chocolate, ch.p
+    小结
+    说白了，Predicate就是为了实现一组匹配规则，让请求过来找到对应的Route进行处理。
