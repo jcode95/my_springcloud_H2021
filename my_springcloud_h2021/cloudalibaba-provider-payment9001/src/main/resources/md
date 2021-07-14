@@ -1,0 +1,7 @@
+docker 安装 nacos
+
+查找：docker search nacos
+
+拉取：docker pull nacos/nacos-server
+
+运行 ：docker run --env MODE=standalone --name nacos -d -p 8848:8848 nacos/nacos-server
