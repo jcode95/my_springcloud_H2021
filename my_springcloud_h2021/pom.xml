@@ -127,6 +127,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.2.2.RELEASE</version><!--添加这行版本，不然会报红，之前都没有，不知道为什么，百度的-->
                 <configuration>
                     <fork>true</fork>
                     <addResources>true</addResources>
